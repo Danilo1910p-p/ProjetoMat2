@@ -21,7 +21,7 @@
     <main>
         <article>
             <h2>Geladeira:</h2>
-            <p>Área: 5,895m²
+            <p>Área: 5,8m²
                 Volume: 400L
                 Consumo de energia elétrica: 40 a 57 kWh a hora
                 Custo(R$): R$39,18</p>
@@ -66,7 +66,7 @@
     <main>
         <article>
             <h2>Chuveiro</h2>
-            <p>Área: 8,19m²
+            <p>Área: 0,819m²
                 Consumo de energia elétrica: 11kWh
                 Custo(R$): R$60,00 mensais
             </p>
@@ -77,6 +77,96 @@
     <footer>
         &copy; 2023 Wikipedia
     </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Volume e Área</title>
+</head>
+<body>
+    <h1>Calculadora de Volume e Área</h1>
+    
+    <!-- Cubo -->
+    <h2>Cubo</h2>
+    <label for="cuboLado">Lado do Cubo:</label>
+    <input type="number" id="cuboLado">
+    <button onclick="calcularVolumeCubo()">Calcular Volume</button>
+    <button onclick="calcularAreaCubo()">Calcular Área</button>
+    <p id="cuboResultado"></p>
+
+    <!-- Paralelepípedo -->
+    <h2>Paralelepípedo</h2>
+    <label for="paralelepipedoComprimento">Comprimento:</label>
+    <input type="number" id="paralelepipedoComprimento">
+    <label for="paralelepipedoLargura">Largura:</label>
+    <input type="number" id="paralelepipedoLargura">
+    <label for="paralelepipedoAltura">Altura:</label>
+    <input type="number" id="paralelepipedoAltura">
+    <button onclick="calcularVolumeParalelepipedo()">Calcular Volume</button>
+    <button onclick="calcularAreaParalelepipedo()">Calcular Área</button>
+    <p id="paralelepipedoResultado"></p>
+
+    <!-- Esfera -->
+    <h2>Esfera</h2>
+    <label for="esferaRaio">Raio da Esfera:</label>
+    <input type="number" id="esferaRaio">
+    <button onclick="calcularVolumeEsfera()">Calcular Volume</button>
+    <button onclick="calcularAreaEsfera()">Calcular Área</button>
+    <p id="esferaResultado"></p>
+
+    <!-- Cone -->
+    <h2>Cone</h2>
+    <label for="coneRaio">Raio da Base:</label>
+    <input type="number" id="coneRaio">
+    <label for="coneAltura">Altura do Cone:</label>
+    <input type="number" id="coneAltura">
+    <button onclick="calcularVolumeCone()">Calcular Volume</button>
+    <button onclick="calcularAreaCone()">Calcular Área</button>
+    <p id="coneResultado"></p>
+
+    <!-- Cilindro -->
+    <h2>Cilindro</h2>
+    <label for="cilindroRaio">Raio da Base:</label>
+    <input type="number" id="cilindroRaio">
+    <label for="cilindroAltura">Altura do Cilindro:</label>
+    <input type="number" id="cilindroAltura">
+    <button onclick="calcularVolumeCilindro()">Calcular Volume</button>
+    <button onclick="calcularAreaCilindro()">Calcular Área</button>
+    <p id="cilindroResultado"></p>
+
+</body>
+<script src="main.js"></script>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calculadora de Consumo de Energia</title>
+</head>
+<body>
+    <h1>Calculadora de Consumo de Energia Elétrica</h1>
+    <form>
+        <label>Potência (W): <input type="number" id="potencia"></label><br>
+        <label>Tempo de uso (horas por dia): <input type="number" id="tempo"></label><br>
+        <label>Período de uso (dias por mês): <input type="number" id="periodo"></label><br>
+        <label>Taxa de consumo (R$/kWh): <input type="number" id="taxa"></label><br>
+        <button type="button" onclick="calcularConsumo()">Calcular</button>
+    </form>
+    <div id="resultado"></div>
+    <script>
+        function calcularConsumo() {
+            const potencia = parseFloat(document.getElementById('potencia').value);
+            const tempo = parseFloat(document.getElementById('tempo').value);
+            const periodo = parseFloat(document.getElementById('periodo').value);
+            const taxa = parseFloat(document.getElementById('taxa').value);
+
+            const energia = (potencia * tempo * periodo) / 1000;
+            const custo = taxa * energia;
+
+            const resultado = `Consumo de Energia: ${energia.toFixed(2)} kWh<br>Custo: R$ ${custo.toFixed(2)}`;
+            document.getElementById('resultado').innerHTML = resultado;
+        }
+    </script>
 </body>
 </html>
 
